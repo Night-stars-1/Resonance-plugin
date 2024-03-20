@@ -1,0 +1,372 @@
+{
+  "卡塔斯": {
+    "id": 10000004,
+    "rank": 5,
+    "EnglishName": "katas"
+  },
+  "朱利安": {
+    "id": 10000025,
+    "rank": 3,
+    "EnglishName": "julian"
+  },
+  "马吉拉": {
+    "id": 10000054,
+    "rank": 5,
+    "EnglishName": "margiela"
+  },
+  "莉薇娅": {
+    "id": 10000055,
+    "rank": 4,
+    "EnglishName": "livia"
+  },
+  "柯娜": {
+    "id": 10000059,
+    "rank": 5,
+    "EnglishName": "connor"
+  },
+  "塔拉": {
+    "id": 10000060,
+    "rank": 3,
+    "EnglishName": "tara"
+  },
+  "狮鬃": {
+    "id": 10000062,
+    "rank": 3,
+    "EnglishName": "solum"
+  },
+  "魇": {
+    "id": 10000063,
+    "rank": 4,
+    "EnglishName": "mhar"
+  },
+  "塞西尔": {
+    "id": 10000064,
+    "rank": 4,
+    "EnglishName": "cecil"
+  },
+  "雷火": {
+    "id": 10000065,
+    "rank": 3,
+    "EnglishName": "priming"
+  },
+  "黛丝莉": {
+    "id": 10000068,
+    "rank": 4,
+    "EnglishName": "cynthia"
+  },
+  "夏洛蒂": {
+    "id": 10000069,
+    "rank": 5,
+    "EnglishName": "charlotte"
+  },
+  "苍叶": {
+    "id": 10000071,
+    "rank": 4,
+    "EnglishName": "aoba"
+  },
+  "艾略特": {
+    "id": 10000134,
+    "rank": 3,
+    "EnglishName": "eliot"
+  },
+  "丽桑德拉": {
+    "id": 10000145,
+    "rank": 5,
+    "EnglishName": "lissandra"
+  },
+  "宵月": {
+    "id": 10000153,
+    "rank": 4,
+    "EnglishName": "yoiduki"
+  },
+  "伊洛娜": {
+    "id": 10000154,
+    "rank": 5,
+    "EnglishName": "ilona"
+  },
+  "静流": {
+    "id": 10000156,
+    "rank": 3,
+    "EnglishName": "shizuru"
+  },
+  "阿尔喀娜": {
+    "id": 10000157,
+    "rank": 3,
+    "EnglishName": "arcana"
+  },
+  "加丽娜": {
+    "id": 10000158,
+    "rank": 4,
+    "EnglishName": "galina"
+  },
+  "弗兰": {
+    "id": 10000160,
+    "rank": 3,
+    "EnglishName": "flan"
+  },
+  "那由他": {
+    "id": 10000072,
+    "rank": 5,
+    "EnglishName": "nayuta"
+  },
+  "索玛": {
+    "id": 10000094,
+    "rank": 5,
+    "EnglishName": "sommer"
+  },
+  "多萝西": {
+    "id": 10000095,
+    "rank": 5,
+    "EnglishName": "dorothy"
+  },
+  "伽罗尔": {
+    "id": 10000111,
+    "rank": 3,
+    "EnglishName": "galore"
+  },
+  "达莉娅": {
+    "id": 10000294,
+    "rank": 8,
+    "EnglishName": ""
+  },
+  "卡莲": {
+    "id": 10000170,
+    "rank": 3,
+    "EnglishName": "karen"
+  },
+  "瑞瓦": {
+    "id": 10000297,
+    "rank": 5,
+    "EnglishName": "reeva"
+  },
+  "星花": {
+    "id": 10000298,
+    "rank": 5,
+    "EnglishName": "stella"
+  },
+  "瑞秋": {
+    "id": 10000299,
+    "rank": 3,
+    "EnglishName": "rachel"
+  },
+  "恐怖分子首领（敌方剧情）": {
+    "id": 10000301,
+    "rank": null,
+    "EnglishName": ""
+  },
+  "菲妮娅": {
+    "id": 10000300,
+    "rank": 4,
+    "EnglishName": "fenia"
+  },
+  "瓦伦汀": {
+    "id": 10000047,
+    "rank": 4,
+    "EnglishName": "valentine"
+  },
+  "BOX（敌方剧情）": {
+    "id": 10000289,
+    "rank": null,
+    "EnglishName": ""
+  },
+  "破烂王（敌方剧情）": {
+    "id": 10000293,
+    "rank": null,
+    "EnglishName": ""
+  },
+  "市长（敌方剧情）": {
+    "id": 10000009,
+    "rank": null,
+    "EnglishName": ""
+  },
+  "阿知波": {
+    "id": 10000387,
+    "rank": 4,
+    "EnglishName": "achiwa"
+  },
+  "闻笙": {
+    "id": 10000388,
+    "rank": 5,
+    "EnglishName": "wensheng"
+  },
+  "冯·里奈": {
+    "id": 10000389,
+    "rank": 4,
+    "EnglishName": "rina·f"
+  },
+  "埃兹拉": {
+    "id": 10000391,
+    "rank": 5,
+    "EnglishName": "ezra"
+  },
+  "跳鼠": {
+    "id": 10000409,
+    "rank": 3,
+    "EnglishName": "jerboa"
+  },
+  "夏尔（敌方剧情）": {
+    "id": 10000410,
+    "rank": null,
+    "EnglishName": ""
+  },
+  "苏恩": {
+    "id": 10000352,
+    "rank": 5,
+    "EnglishName": "suen"
+  },
+  "米莉": {
+    "id": 10000412,
+    "rank": 5,
+    "EnglishName": "millie"
+  },
+  "山岚": {
+    "id": 10000414,
+    "rank": 3,
+    "EnglishName": "yamaarashi"
+  },
+  "波克士": {
+    "id": 10000408,
+    "rank": 2,
+    "EnglishName": "box"
+  },
+  "亚莉奈（敌方剧情）": {
+    "id": 10000705,
+    "rank": null,
+    "EnglishName": ""
+  },
+  "叶珏（敌方剧情）": {
+    "id": 10000706,
+    "rank": null,
+    "EnglishName": ""
+  },
+  "隼（敌方剧情）": {
+    "id": 10000707,
+    "rank": null,
+    "EnglishName": ""
+  },
+  "薇尔岚": {
+    "id": 10000739,
+    "rank": 5,
+    "EnglishName": "verlaine"
+  },
+  "波克美": {
+    "id": 10000741,
+    "rank": 5,
+    "EnglishName": ""
+  },
+  "火箭拳波克士": {
+    "id": 10000743,
+    "rank": 3,
+    "EnglishName": ""
+  },
+  "波克王": {
+    "id": 10000744,
+    "rank": 6,
+    "EnglishName": "box-x"
+  },
+  "叶珏": {
+    "id": 10000335,
+    "rank": 4,
+    "EnglishName": "yejue"
+  },
+  "遥（敌方剧情）": {
+    "id": 10000349,
+    "rank": null,
+    "EnglishName": ""
+  },
+  "遥": {
+    "id": 10000027,
+    "rank": 3,
+    "EnglishName": "haruka"
+  },
+  "约书亚": {
+    "id": 10000031,
+    "rank": 5,
+    "EnglishName": "joshua"
+  },
+  "隼": {
+    "id": 10000034,
+    "rank": 5,
+    "EnglishName": "hayabusa"
+  },
+  "亚莉奈": {
+    "id": 10000051,
+    "rank": 5,
+    "EnglishName": "arina"
+  },
+  "奈弥": {
+    "id": 10000052,
+    "rank": 4,
+    "EnglishName": "nabi"
+  },
+  "伊尔": {
+    "id": 10000053,
+    "rank": 4,
+    "EnglishName": "yer"
+  },
+  "卡莱雅": {
+    "id": 10000101,
+    "rank": 4,
+    "EnglishName": "kaleya"
+  },
+  "霖": {
+    "id": 10000110,
+    "rank": 4,
+    "EnglishName": "lin"
+  },
+  "甘雅": {
+    "id": 10000112,
+    "rank": 4,
+    "EnglishName": "ganya"
+  },
+  "达斯廷": {
+    "id": 10000035,
+    "rank": 5,
+    "EnglishName": "dustin"
+  },
+  "参宿一": {
+    "id": 10000117,
+    "rank": 3,
+    "EnglishName": "alnitak"
+  },
+  "妮蔻拉": {
+    "id": 10000032,
+    "rank": 5,
+    "EnglishName": "nicola"
+  },
+  "晃": {
+    "id": 10000124,
+    "rank": 4,
+    "EnglishName": "akira"
+  },
+  "卡洛琳": {
+    "id": 10000139,
+    "rank": 5,
+    "EnglishName": "caroline"
+  },
+  "神盾波克士": {
+    "id": 10000030,
+    "rank": 3,
+    "EnglishName": "aegis box"
+  },
+  "圣剑波克士": {
+    "id": 10000159,
+    "rank": 3,
+    "EnglishName": "excalibur box"
+  },
+  "自己": {
+    "id": 10000173,
+    "rank": 1,
+    "EnglishName": ""
+  },
+  "雷比斯": {
+    "id": 10000245,
+    "rank": 5,
+    "EnglishName": "rebis"
+  },
+  "夏尔": {
+    "id": 10000254,
+    "rank": 5,
+    "EnglishName": "shire"
+  }
+}

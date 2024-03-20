@@ -1,0 +1,312 @@
+{
+  "katas": {
+    "id": 10000004,
+    "rank": 5,
+    "name": "卡塔斯"
+  },
+  "julian": {
+    "id": 10000025,
+    "rank": 3,
+    "name": "朱利安"
+  },
+  "margiela": {
+    "id": 10000054,
+    "rank": 5,
+    "name": "马吉拉"
+  },
+  "livia": {
+    "id": 10000055,
+    "rank": 4,
+    "name": "莉薇娅"
+  },
+  "connor": {
+    "id": 10000059,
+    "rank": 5,
+    "name": "柯娜"
+  },
+  "tara": {
+    "id": 10000060,
+    "rank": 3,
+    "name": "塔拉"
+  },
+  "solum": {
+    "id": 10000062,
+    "rank": 3,
+    "name": "狮鬃"
+  },
+  "mhar": {
+    "id": 10000063,
+    "rank": 4,
+    "name": "魇"
+  },
+  "cecil": {
+    "id": 10000064,
+    "rank": 4,
+    "name": "塞西尔"
+  },
+  "priming": {
+    "id": 10000065,
+    "rank": 3,
+    "name": "雷火"
+  },
+  "cynthia": {
+    "id": 10000068,
+    "rank": 4,
+    "name": "黛丝莉"
+  },
+  "charlotte": {
+    "id": 10000069,
+    "rank": 5,
+    "name": "夏洛蒂"
+  },
+  "aoba": {
+    "id": 10000071,
+    "rank": 4,
+    "name": "苍叶"
+  },
+  "eliot": {
+    "id": 10000134,
+    "rank": 3,
+    "name": "艾略特"
+  },
+  "lissandra": {
+    "id": 10000145,
+    "rank": 5,
+    "name": "丽桑德拉"
+  },
+  "yoiduki": {
+    "id": 10000153,
+    "rank": 4,
+    "name": "宵月"
+  },
+  "ilona": {
+    "id": 10000154,
+    "rank": 5,
+    "name": "伊洛娜"
+  },
+  "shizuru": {
+    "id": 10000156,
+    "rank": 3,
+    "name": "静流"
+  },
+  "arcana": {
+    "id": 10000157,
+    "rank": 3,
+    "name": "阿尔喀娜"
+  },
+  "galina": {
+    "id": 10000158,
+    "rank": 4,
+    "name": "加丽娜"
+  },
+  "flan": {
+    "id": 10000160,
+    "rank": 3,
+    "name": "弗兰"
+  },
+  "nayuta": {
+    "id": 10000072,
+    "rank": 5,
+    "name": "那由他"
+  },
+  "sommer": {
+    "id": 10000094,
+    "rank": 5,
+    "name": "索玛"
+  },
+  "dorothy": {
+    "id": 10000095,
+    "rank": 5,
+    "name": "多萝西"
+  },
+  "galore": {
+    "id": 10000111,
+    "rank": 3,
+    "name": "伽罗尔"
+  },
+  "": {
+    "id": 10000173,
+    "rank": 1,
+    "name": "自己"
+  },
+  "karen": {
+    "id": 10000170,
+    "rank": 3,
+    "name": "卡莲"
+  },
+  "reeva": {
+    "id": 10000297,
+    "rank": 5,
+    "name": "瑞瓦"
+  },
+  "stella": {
+    "id": 10000298,
+    "rank": 5,
+    "name": "星花"
+  },
+  "rachel": {
+    "id": 10000299,
+    "rank": 3,
+    "name": "瑞秋"
+  },
+  "fenia": {
+    "id": 10000300,
+    "rank": 4,
+    "name": "菲妮娅"
+  },
+  "valentine": {
+    "id": 10000047,
+    "rank": 4,
+    "name": "瓦伦汀"
+  },
+  "achiwa": {
+    "id": 10000387,
+    "rank": 4,
+    "name": "阿知波"
+  },
+  "wensheng": {
+    "id": 10000388,
+    "rank": 5,
+    "name": "闻笙"
+  },
+  "rina·f": {
+    "id": 10000389,
+    "rank": 4,
+    "name": "冯·里奈"
+  },
+  "ezra": {
+    "id": 10000391,
+    "rank": 5,
+    "name": "埃兹拉"
+  },
+  "jerboa": {
+    "id": 10000409,
+    "rank": 3,
+    "name": "跳鼠"
+  },
+  "suen": {
+    "id": 10000352,
+    "rank": 5,
+    "name": "苏恩"
+  },
+  "millie": {
+    "id": 10000412,
+    "rank": 5,
+    "name": "米莉"
+  },
+  "yamaarashi": {
+    "id": 10000414,
+    "rank": 3,
+    "name": "山岚"
+  },
+  "box": {
+    "id": 10000408,
+    "rank": 2,
+    "name": "波克士"
+  },
+  "verlaine": {
+    "id": 10000739,
+    "rank": 5,
+    "name": "薇尔岚"
+  },
+  "box-x": {
+    "id": 10000744,
+    "rank": 6,
+    "name": "波克王"
+  },
+  "yejue": {
+    "id": 10000335,
+    "rank": 4,
+    "name": "叶珏"
+  },
+  "haruka": {
+    "id": 10000027,
+    "rank": 3,
+    "name": "遥"
+  },
+  "joshua": {
+    "id": 10000031,
+    "rank": 5,
+    "name": "约书亚"
+  },
+  "hayabusa": {
+    "id": 10000034,
+    "rank": 5,
+    "name": "隼"
+  },
+  "arina": {
+    "id": 10000051,
+    "rank": 5,
+    "name": "亚莉奈"
+  },
+  "nabi": {
+    "id": 10000052,
+    "rank": 4,
+    "name": "奈弥"
+  },
+  "yer": {
+    "id": 10000053,
+    "rank": 4,
+    "name": "伊尔"
+  },
+  "kaleya": {
+    "id": 10000101,
+    "rank": 4,
+    "name": "卡莱雅"
+  },
+  "lin": {
+    "id": 10000110,
+    "rank": 4,
+    "name": "霖"
+  },
+  "ganya": {
+    "id": 10000112,
+    "rank": 4,
+    "name": "甘雅"
+  },
+  "dustin": {
+    "id": 10000035,
+    "rank": 5,
+    "name": "达斯廷"
+  },
+  "alnitak": {
+    "id": 10000117,
+    "rank": 3,
+    "name": "参宿一"
+  },
+  "nicola": {
+    "id": 10000032,
+    "rank": 5,
+    "name": "妮蔻拉"
+  },
+  "akira": {
+    "id": 10000124,
+    "rank": 4,
+    "name": "晃"
+  },
+  "caroline": {
+    "id": 10000139,
+    "rank": 5,
+    "name": "卡洛琳"
+  },
+  "aegis box": {
+    "id": 10000030,
+    "rank": 3,
+    "name": "神盾波克士"
+  },
+  "excalibur box": {
+    "id": 10000159,
+    "rank": 3,
+    "name": "圣剑波克士"
+  },
+  "rebis": {
+    "id": 10000245,
+    "rank": 5,
+    "name": "雷比斯"
+  },
+  "shire": {
+    "id": 10000254,
+    "rank": 5,
+    "name": "夏尔"
+  }
+}

@@ -1,0 +1,377 @@
+{
+  "10000004": {
+    "name": "卡塔斯",
+    "rank": 5,
+    "EnglishName": "katas"
+  },
+  "10000009": {
+    "name": "市长（敌方剧情）",
+    "rank": null,
+    "EnglishName": ""
+  },
+  "10000025": {
+    "name": "朱利安",
+    "rank": 3,
+    "EnglishName": "julian"
+  },
+  "10000027": {
+    "name": "遥",
+    "rank": 3,
+    "EnglishName": "haruka"
+  },
+  "10000030": {
+    "name": "神盾波克士",
+    "rank": 3,
+    "EnglishName": "aegis box"
+  },
+  "10000031": {
+    "name": "约书亚",
+    "rank": 5,
+    "EnglishName": "joshua"
+  },
+  "10000032": {
+    "name": "妮蔻拉",
+    "rank": 5,
+    "EnglishName": "nicola"
+  },
+  "10000034": {
+    "name": "隼",
+    "rank": 5,
+    "EnglishName": "hayabusa"
+  },
+  "10000035": {
+    "name": "达斯廷",
+    "rank": 5,
+    "EnglishName": "dustin"
+  },
+  "10000047": {
+    "name": "瓦伦汀",
+    "rank": 4,
+    "EnglishName": "valentine"
+  },
+  "10000051": {
+    "name": "亚莉奈",
+    "rank": 5,
+    "EnglishName": "arina"
+  },
+  "10000052": {
+    "name": "奈弥",
+    "rank": 4,
+    "EnglishName": "nabi"
+  },
+  "10000053": {
+    "name": "伊尔",
+    "rank": 4,
+    "EnglishName": "yer"
+  },
+  "10000054": {
+    "name": "马吉拉",
+    "rank": 5,
+    "EnglishName": "margiela"
+  },
+  "10000055": {
+    "name": "莉薇娅",
+    "rank": 4,
+    "EnglishName": "livia"
+  },
+  "10000059": {
+    "name": "柯娜",
+    "rank": 5,
+    "EnglishName": "connor"
+  },
+  "10000060": {
+    "name": "塔拉",
+    "rank": 3,
+    "EnglishName": "tara"
+  },
+  "10000062": {
+    "name": "狮鬃",
+    "rank": 3,
+    "EnglishName": "solum"
+  },
+  "10000063": {
+    "name": "魇",
+    "rank": 4,
+    "EnglishName": "mhar"
+  },
+  "10000064": {
+    "name": "塞西尔",
+    "rank": 4,
+    "EnglishName": "cecil"
+  },
+  "10000065": {
+    "name": "雷火",
+    "rank": 3,
+    "EnglishName": "priming"
+  },
+  "10000068": {
+    "name": "黛丝莉",
+    "rank": 4,
+    "EnglishName": "cynthia"
+  },
+  "10000069": {
+    "name": "夏洛蒂",
+    "rank": 5,
+    "EnglishName": "charlotte"
+  },
+  "10000071": {
+    "name": "苍叶",
+    "rank": 4,
+    "EnglishName": "aoba"
+  },
+  "10000072": {
+    "name": "那由他",
+    "rank": 5,
+    "EnglishName": "nayuta"
+  },
+  "10000094": {
+    "name": "索玛",
+    "rank": 5,
+    "EnglishName": "sommer"
+  },
+  "10000095": {
+    "name": "多萝西",
+    "rank": 5,
+    "EnglishName": "dorothy"
+  },
+  "10000101": {
+    "name": "卡莱雅",
+    "rank": 4,
+    "EnglishName": "kaleya"
+  },
+  "10000110": {
+    "name": "霖",
+    "rank": 4,
+    "EnglishName": "lin"
+  },
+  "10000111": {
+    "name": "伽罗尔",
+    "rank": 3,
+    "EnglishName": "galore"
+  },
+  "10000112": {
+    "name": "甘雅",
+    "rank": 4,
+    "EnglishName": "ganya"
+  },
+  "10000117": {
+    "name": "参宿一",
+    "rank": 3,
+    "EnglishName": "alnitak"
+  },
+  "10000124": {
+    "name": "晃",
+    "rank": 4,
+    "EnglishName": "akira"
+  },
+  "10000134": {
+    "name": "艾略特",
+    "rank": 3,
+    "EnglishName": "eliot"
+  },
+  "10000137": {
+    "name": "自己",
+    "rank": 1,
+    "EnglishName": ""
+  },
+  "10000139": {
+    "name": "卡洛琳",
+    "rank": 5,
+    "EnglishName": "caroline"
+  },
+  "10000145": {
+    "name": "丽桑德拉",
+    "rank": 5,
+    "EnglishName": "lissandra"
+  },
+  "10000153": {
+    "name": "宵月",
+    "rank": 4,
+    "EnglishName": "yoiduki"
+  },
+  "10000154": {
+    "name": "伊洛娜",
+    "rank": 5,
+    "EnglishName": "ilona"
+  },
+  "10000156": {
+    "name": "静流",
+    "rank": 3,
+    "EnglishName": "shizuru"
+  },
+  "10000157": {
+    "name": "阿尔喀娜",
+    "rank": 3,
+    "EnglishName": "arcana"
+  },
+  "10000158": {
+    "name": "加丽娜",
+    "rank": 4,
+    "EnglishName": "galina"
+  },
+  "10000159": {
+    "name": "圣剑波克士",
+    "rank": 3,
+    "EnglishName": "excalibur box"
+  },
+  "10000160": {
+    "name": "弗兰",
+    "rank": 3,
+    "EnglishName": "flan"
+  },
+  "10000170": {
+    "name": "卡莲",
+    "rank": 3,
+    "EnglishName": "karen"
+  },
+  "10000173": {
+    "name": "自己",
+    "rank": 1,
+    "EnglishName": ""
+  },
+  "10000245": {
+    "name": "雷比斯",
+    "rank": 5,
+    "EnglishName": "rebis"
+  },
+  "10000254": {
+    "name": "夏尔",
+    "rank": 5,
+    "EnglishName": "shire"
+  },
+  "10000289": {
+    "name": "BOX（敌方剧情）",
+    "rank": null,
+    "EnglishName": ""
+  },
+  "10000293": {
+    "name": "破烂王（敌方剧情）",
+    "rank": null,
+    "EnglishName": ""
+  },
+  "10000294": {
+    "name": "达莉娅",
+    "rank": 8,
+    "EnglishName": ""
+  },
+  "10000297": {
+    "name": "瑞瓦",
+    "rank": 5,
+    "EnglishName": "reeva"
+  },
+  "10000298": {
+    "name": "星花",
+    "rank": 5,
+    "EnglishName": "stella"
+  },
+  "10000299": {
+    "name": "瑞秋",
+    "rank": 3,
+    "EnglishName": "rachel"
+  },
+  "10000300": {
+    "name": "菲妮娅",
+    "rank": 4,
+    "EnglishName": "fenia"
+  },
+  "10000301": {
+    "name": "恐怖分子首领（敌方剧情）",
+    "rank": null,
+    "EnglishName": ""
+  },
+  "10000335": {
+    "name": "叶珏",
+    "rank": 4,
+    "EnglishName": "yejue"
+  },
+  "10000349": {
+    "name": "遥（敌方剧情）",
+    "rank": null,
+    "EnglishName": ""
+  },
+  "10000352": {
+    "name": "苏恩",
+    "rank": 5,
+    "EnglishName": "suen"
+  },
+  "10000387": {
+    "name": "阿知波",
+    "rank": 4,
+    "EnglishName": "achiwa"
+  },
+  "10000388": {
+    "name": "闻笙",
+    "rank": 5,
+    "EnglishName": "wensheng"
+  },
+  "10000389": {
+    "name": "冯·里奈",
+    "rank": 4,
+    "EnglishName": "rina·f"
+  },
+  "10000391": {
+    "name": "埃兹拉",
+    "rank": 5,
+    "EnglishName": "ezra"
+  },
+  "10000408": {
+    "name": "波克士",
+    "rank": 2,
+    "EnglishName": "box"
+  },
+  "10000409": {
+    "name": "跳鼠",
+    "rank": 3,
+    "EnglishName": "jerboa"
+  },
+  "10000410": {
+    "name": "夏尔（敌方剧情）",
+    "rank": null,
+    "EnglishName": ""
+  },
+  "10000412": {
+    "name": "米莉",
+    "rank": 5,
+    "EnglishName": "millie"
+  },
+  "10000414": {
+    "name": "山岚",
+    "rank": 3,
+    "EnglishName": "yamaarashi"
+  },
+  "10000705": {
+    "name": "亚莉奈（敌方剧情）",
+    "rank": null,
+    "EnglishName": ""
+  },
+  "10000706": {
+    "name": "叶珏（敌方剧情）",
+    "rank": null,
+    "EnglishName": ""
+  },
+  "10000707": {
+    "name": "隼（敌方剧情）",
+    "rank": null,
+    "EnglishName": ""
+  },
+  "10000739": {
+    "name": "薇尔岚",
+    "rank": 5,
+    "EnglishName": "verlaine"
+  },
+  "10000741": {
+    "name": "波克美",
+    "rank": 5,
+    "EnglishName": ""
+  },
+  "10000743": {
+    "name": "火箭拳波克士",
+    "rank": 3,
+    "EnglishName": ""
+  },
+  "10000744": {
+    "name": "波克王",
+    "rank": 6,
+    "EnglishName": "box-x"
+  }
+}

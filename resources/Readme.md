@@ -1,0 +1,1 @@
+By: https://github.com/hewang1an/StarRail-plugin

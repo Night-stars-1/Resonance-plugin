@@ -1,0 +1,64 @@
+{{extend defaultLayout}}
+
+{{block 'css'}}
+<link rel="stylesheet" href="{{pluResPath}}/gatcha/new.css">
+{{/block}}
+
+{{block 'main'}}
+  <div class="title">
+    <span class="title-text">抽卡记录</span>
+    <span class="title-sub">名称: {{ name }}</span>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      抽卡详情
+    </div>
+    <div class="card-content">
+      <div class="card-item">
+        <div class="card-item-head">
+          数据总览
+        </div>
+        <div class="card-item-content data-sum">
+          <div class="row">
+            <div class="col">
+              <div>{{ totalNum }}<span>抽</span><p>累计已抽</p></div>
+            </div>
+            <div class="col">
+              <div>{{ currInfo.totalNum }}<span>抽</span><p>本期已抽</p></div>
+            </div>
+            <div class="col">
+              <div>{{ currInfo.last['5'] }}<span>抽</span><p>角色未出五星</p></div>
+            </div>
+          </div>
+          <div class="mark">抽卡记录时间段: {{ localFirstTime }} - {{ localLastTime }}</div>
+        </div>
+      </div>
+      {{ if type == 0 }}
+        {{ each data item }}
+          <div class="card-item">
+            <div class="card-item-head">
+              {{ item.typeName }}
+            </div>
+            <div class="card-item-content">
+              <ul>
+                {{ each item.records record }}
+                  <li class="{{ record.className }} {{ record.rank === 5 ? 'item-up' : '' }}">
+                    <div class="img">
+                      <img src="{{ pluResPath }}gatcha/images/{{ record.roleId }}.png" alt="{{ record.name }}">
+                    </div>
+                    <div class="{{ record.rank === 5 ? 'five' : record.rank === 4 ? 'four' : 'three' }} number">{{ record.until }}</div>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        {{/each}}
+      {{ /if }}
+    </div>
+  </div>
+
+  <div class="logo">
+    {{@sys.createdby}}
+  </div>
+{{/block}}

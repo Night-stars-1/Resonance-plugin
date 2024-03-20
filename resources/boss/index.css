@@ -1,0 +1,162 @@
+/* * {
+  box-sizing: border-box;
+}
+
+html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: PingFangSC-Medium, PingFang SC, sans-serif;
+  width: 810px;
+} 
+
+ul,ol {
+  list-style: none;
+} */
+
+.container {
+    padding: 40px 40px 0 40px;
+    width: 810px;
+    overflow: hidden;
+    background: url('../common/cont/bkg.png') center no-repeat;
+    background-size: cover;
+    color: #f0eaca;
+    font-family: 'SR', sans-serif;
+    font-size: 1.2rem;
+}
+
+.title {
+    border-bottom: 2px solid #f0eaca;
+    padding-bottom: 8px;
+}
+
+.title-text {
+    font-size: 32px;
+}
+
+.title-sub {
+    margin-left: 8px;
+}
+
+.card {
+    position: relative;
+    margin-top: 16px;
+}
+
+.card-header {
+    padding: 8px 18px;
+    border-top-right-radius: 36px;
+    border-bottom: 4px solid #e2c494;
+    border-top: 1px solid #838385;
+    border-right: 1px solid #838385;
+    background-color: #202020;
+    font-size: 24px;
+}
+
+.card-content {
+    padding: 40px;
+    background-color: rgba(255, 255, 255, .8);
+}
+
+.card-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../common/cont/logo.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: .1;
+}
+
+.card-item-head {
+    padding: 6px 0;
+    background-color: black;
+    color: #f0eaca;
+    text-align: center;
+    font-size: 22px;
+}
+
+.card-item-content {
+    padding: 20px 0 10px 0;
+}
+
+.data-sum {
+    padding: 30px;
+}
+
+.data-sum .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.data-sum .row .col {
+    display: flex;
+    /* align-content: center; */
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: #000;
+}
+
+.data-sum .row .col-header {
+    width: 25%;
+}
+
+.data-sum .row .col-content {
+    width: 75%;
+}
+
+.data-sum .row .col span {
+    font-size: 18px;
+}
+
+.data-sum .row .col p {
+    display: block;
+    font-size: 16px;
+    color: #616161;
+}
+
+.progress-container {
+    width: auto;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 30px;
+    font-size: 25px;
+    background-color: #fea6a2;
+    background-image: repeating-linear-gradient(135deg,
+            transparent 2rem,
+            transparent 2rem,
+            /* 第一种颜色透明段的宽度 */
+            #FC786E 1rem,
+            #FC786E 3rem,
+            /* 第一种颜色红色段的宽度 */
+            transparent 3rem,
+            transparent 4rem,
+            /* 第二种颜色透明段的宽度，与第一种颜色透明段宽度相同以保持一致性 */
+            #fea6a2 1rem,
+            #fea6a2 3rem
+            /* 第二种颜色粉色段的宽度 */
+        );
+    border-radius: 10px;
+}
+
+
+.logo {
+    font-size: 24px;
+    font-family: 'tttgbnumber';
+    color: #f0eaca;
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 30px;
+}

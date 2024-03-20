@@ -1,0 +1,42 @@
+{{extend defaultLayout}}
+
+{{block 'css'}}
+<link rel="stylesheet" href="{{pluResPath}}/boss/index.css">
+{{/block}}
+
+{{block 'main'}}
+<div class="title">
+  <span class="title-text">BOSS消息</span>
+  <span class="title-sub">名称: {{ user }}</span>
+</div>
+
+<div class="card">
+  <div class="card-content">
+    <div class="card-item">
+      {{ each data items name }}
+      <div class="card-item-head">
+        {{ name }}
+      </div>
+      <div class="card-item-content data-sum">
+        <div class="row">
+          <div class="col col-header">
+            <span>{{ items.name }}</span>
+          </div>
+          <div class="col col-content">
+            <div class="progress-container" style="width: 100%">
+              <div class="progress-bar" id="progressBar"
+                style="width: {{ (items.pollute_num / 60000000 * 100) + '%' }}">
+                {{ items.pollute_num }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{ /each }}
+    </div>
+  </div>
+</div>
+
+<div class="logo">
+  {{@sys.createdby}}
+</div>
+{{/block}}
