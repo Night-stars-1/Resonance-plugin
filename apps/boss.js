@@ -16,7 +16,7 @@ export class Gatcha extends plugin {
       priority: -114514,
       rule: [
         {
-          reg: `^${rulePrefix}BOSS(详细|详情|详细信息|)`,
+          reg: `^${rulePrefix}BOSS(详细|详情|详细信息)?$`,
           fnc: 'boss'
         }
       ]

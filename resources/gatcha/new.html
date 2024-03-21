@@ -43,12 +43,12 @@
             <div class="card-item-content">
               <ul>
                 {{ each item.records record }}
-                  <li class="{{ record.className }} {{ record.rank === 5 ? 'item-up' : '' }}">
-                    <div class="img">
+                  {{ if record.rank >= 4 }}
+                    <li class="{{ record.className }} {{ record.rank === 5 ? 'item-up' : '' }}">
                       <img src="{{ pluResPath }}gatcha/images/{{ record.roleId }}.png" alt="{{ record.name }}">
-                    </div>
-                    <div class="{{ record.rank === 5 ? 'five' : record.rank === 4 ? 'four' : 'three' }} number">{{ record.until }} {{ record.name }}</div>
-                  </li>
+                      <div class="{{ record.rank === 5 ? 'five' : record.rank === 4 ? 'four' : 'three' }} number">{{ record.until }}</div>
+                    </li>
+                  {{ /if }}
                 {{/each}}
               </ul>
             </div>

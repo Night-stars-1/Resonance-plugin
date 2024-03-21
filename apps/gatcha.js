@@ -22,7 +22,7 @@ export class Gatcha extends plugin {
           fnc: 'bindAuthKey'
         },
         {
-          reg: `^${rulePrefix}抽卡(记录|分析|统计)`,
+          reg: `^${rulePrefix}抽卡(记录|分析|统计)?$`,
           fnc: 'gatcha'
         },
         {
