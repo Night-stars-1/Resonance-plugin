@@ -47,7 +47,7 @@
                     <div class="img">
                       <img src="{{ pluResPath }}gatcha/images/{{ record.roleId }}.png" alt="{{ record.name }}">
                     </div>
-                    <div class="{{ record.rank === 5 ? 'five' : record.rank === 4 ? 'four' : 'three' }} number">{{ record.until }}</div>
+                    <div class="{{ record.rank === 5 ? 'five' : record.rank === 4 ? 'four' : 'three' }} number">{{ record.until }} {{ record.name }}</div>
                   </li>
                 {{/each}}
               </ul>

@@ -127,11 +127,14 @@ export default class GatchaData {
     if (fs.existsSync(filePath)) {
       return JSON.parse(fs.readFileSync(filePath))
     } else {
-      return { records: [], user_name: '' }
+      return { records: [], user_name: '', uid: '' }
     }
   }
 
   merge (oldData, newData) {
+    if (oldData.uid && oldData.uid !== newData.uid) {
+      throw new Error('uid 不一致')
+    }
     const lastItemId = oldData.records?.[0]?.role_id || ''
     const newArr = {
       records: [],

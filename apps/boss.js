@@ -24,7 +24,7 @@ export class Gatcha extends plugin {
   }
 
   async boss (e) {
-    let user = e.user_id
+    let user = e.sender.nickname
     const ats = e.message.filter(m => m.type === 'at')
     if (ats.length > 0 && !e.atBot) {
       user = ats[0].qq

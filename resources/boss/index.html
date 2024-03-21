@@ -15,7 +15,7 @@
     <div class="card-item">
       {{ each data items name }}
       <div class="card-item-head">
-        {{ name }}
+        {{ name }}-{{ items.curr_index }}
       </div>
       <div class="card-item-content data-sum">
         <div class="row">
@@ -25,7 +25,7 @@
           <div class="col col-content">
             <div class="progress-container" style="width: 100%">
               <div class="progress-bar" id="progressBar"
-                style="width: {{ (items.pollute_num / 60000000 * 100) + '%' }}">
+                style="width: {{ items.ratio + '%' }}">
                 {{ items.pollute_num }}</div>
             </div>
           </div>

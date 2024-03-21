@@ -93,7 +93,7 @@ export class Gatcha extends plugin {
       await e.reply(`正在获取[${userId}]的抽卡数据...`)
       const gatcha = new GatchaData(userId, pid, remoteId)
       await gatcha.updateData()
-      const msg = await common.makeForwardMsg(e, ['抽卡数据获取成功，你可以使用：', '*抽卡分析\n*角色分析\n*光锥分析\n*常驻分析', '查看具体的抽卡数据'])
+      const msg = await common.makeForwardMsg(e, ['抽卡数据获取成功，你可以使用：', '#雷索纳斯抽卡分析', '查看具体的抽卡数据'])
       await e.reply(msg)
     } catch (error) {
       console.log(error)
@@ -138,7 +138,7 @@ export class Gatcha extends plugin {
       })
     } catch (err) {
       logger.error(err)
-      await e.reply('本地暂无抽卡记录，请发送#星雷索纳斯更新抽卡，更新抽卡记录')
+      await e.reply('本地暂无抽卡记录，请发送#雷索纳斯更新抽卡，更新抽卡记录')
     }
   }
 }

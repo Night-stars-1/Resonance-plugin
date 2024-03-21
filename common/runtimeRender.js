@@ -2,7 +2,7 @@
  * By: https://github.com/hewang1an/StarRail-plugin
  */
 const Version = {
-  name: 'name',
+  name: 'Night-stars-1',
   yunzai: 'yunzai',
   version: 'version'
 }
