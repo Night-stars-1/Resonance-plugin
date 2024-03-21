@@ -98,7 +98,7 @@ export class Gatcha extends plugin {
     } catch (error) {
       console.log(error)
       await redis.set(`RESONANCE:GATCHA_LASTTIME:${userId}`, '')
-      await e.reply('抽卡链接已过期，请重新获取并绑定')
+      await e.reply('抽卡链接已过期，请输入:\n#雷索纳斯抽卡链接\n重新获取并绑定')
     }
   }
 
