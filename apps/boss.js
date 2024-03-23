@@ -6,7 +6,7 @@ import plugin from '../../../lib/plugins/plugin.js'
 import runtimeRender from '../common/runtimeRender.js'
 import { getBoss } from '../utils/api/boss.js'
 
-export class Gatcha extends plugin {
+export class Boss extends plugin {
   constructor (e) {
     super({
       name: '雷索纳斯BOSS详细',
