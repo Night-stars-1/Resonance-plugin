@@ -1,25 +1,24 @@
 import fs from 'fs'
+import moment from 'moment'
 import path from 'path'
 import WebSocket from 'ws'
-import moment from 'moment'
 import zlib from 'zlib'
 
 import { pluginRoot } from '../utils/path.js'
 
 const config = JSON.parse(fs.readFileSync(path.join(pluginRoot, 'config.json'), 'utf8'))
 
-let goodsList = [
-  {
-    name: '扬声器',
-    city: '澄明数据中心',
-    type: 'buy',
-    trend: 'down',
-    price: '1027',
-    base_price: '960',
-    ratio: 107,
-    updatadAt: 1711086071828
-  }
-]
+/**
+ * @typedef goodsItem
+ * @property {string} name 商品名称
+ * @property {string} city 城市
+ * @property {string} type 类型
+ * @property {string} trend 趋势
+ * @property {number} price 价格
+ * @property {number} base_price 基础价格
+ * @property {number} ratio 比率
+ * @property {number} updatadAt 更新时间
+ */
 
 async function prompt () {
   const ws = new WebSocket('wss://goda.srap.link/ws')
@@ -45,30 +44,55 @@ async function prompt () {
       try {
         const goods = JSON.parse(jsonString)
         const messages = {}
-        for (let cityName in goods) {
-          goodsList = goods[cityName]
-          const goodsInfo = (await Promise.all(goodsList.map(async value => {
+        const buyGoods = {}
+        for (const cityName in goods) {
+          /**
+           * @type {goodsItem[]} 配置信息
+           */
+          const goodsList = goods[cityName]
+          for (const value of goodsList) {
             const date = moment()
-            const lastTimeKey = `RESONANCE:GATCHA_LASTTIME:${value.type}${value.name}`
-            const lastTime = await redis.get(lastTimeKey)
-            if (lastTime && date.diff(moment(lastTime), 'minutes') < 30) return null
-            // 不记录低价商品
-            if (value.price < 1000 && value.name !== '红茶') return null
             if (value.type === 'buy') {
-              if ((value.ratio <= 55 && value.name === '红茶') || (value.ratio <= 90 && value.name !== '红茶')) {
-                await redis.set(lastTimeKey, date.format('YYYY-MM-DD HH:mm:ss'))
-                return `发现低价购入商品：${value.name}，价格：${value.price}，跌幅：${value.ratio}%\n`
-              }
-            } else if (value.type === 'sell') {
-              if ((value.ratio >= 120 && value.name === '红茶') || (value.ratio >= 110 && value.name !== '红茶')) {
-                await redis.set(lastTimeKey, date.format('YYYY-MM-DD HH:mm:ss'))
-                return `发现高价售出商品：${value.name}，价格：${value.price}，涨幅：${value.ratio}%\n`
+              buyGoods[value.name] = value
+              const lastTime = await redis.get(`RESONANCE:GATCHA_LASTTIME:${value.type}${value.name}`)
+              if (value.ratio <= 53 && value.name === '红茶' && (date.diff(moment(lastTime), 'minutes') > 30 || !lastTime)) {
+                messages['红茶'] = [`\n购买${value.city}：￥${value.price}，变动趋势：${value.ratio}%`]
+                await redis.set(`RESONANCE:GATCHA_LASTTIME:${value.type}${value.name}`, date.format('YYYY-MM-DD HH:mm:ss'))
               }
             }
-            return null
-          }))).filter(message => message !== null)
-
-          messages[cityName] = goodsInfo
+          }
+        }
+        for (const cityName in goods) {
+          /**
+           * @type {goodsItem[]} 商品信息
+           */
+          const goodsList = goods[cityName]
+          for (const value of goodsList) {
+            /**
+             * @type {goodsItem} 购买商品信息
+             */
+            const buyInfo = buyGoods[value.name]
+            const date = moment()
+            if (value.type === 'sell' && buyInfo) {
+              const lastTime = await redis.get(`RESONANCE:GATCHA_LASTTIME:${buyInfo.city}-${value.city}:${value.name}`)
+              const hLastTime = await redis.get(`RESONANCE:GATCHA_LASTTIME:${value.type}${value.name}`)
+              if (value.price - buyInfo.price >= 1900 && (date.diff(moment(lastTime), 'minutes') > 30 || !lastTime)) {
+                if (!Object.prototype.hasOwnProperty.call(messages, `${buyInfo.city}-${value.city}`)) {
+                  messages[`${buyInfo.city}-${value.city}`] = [`\n${value.name}：￥${value.price - buyInfo.price}`]
+                } else {
+                  messages[`${buyInfo.city}-${value.city}`].push(`\n${value.name}：￥${value.price - buyInfo.price}`)
+                }
+                await redis.set(`RESONANCE:GATCHA_LASTTIME:${buyInfo.city}-${value.city}:${value.name}`, date.format('YYYY-MM-DD HH:mm:ss'))
+              } else if (value.ratio >= 148 && value.name === '红茶' && (date.diff(moment(hLastTime), 'minutes') < 30 || !lastTime)) {
+                if (!Object.prototype.hasOwnProperty.call(messages, '红茶')) {
+                  messages['红茶'] = [`\n售出${value.city}：￥${value.price}，变动趋势：${value.ratio}%`]
+                } else {
+                  messages['红茶'].push(`\n售出${value.city}：￥${value.price}，变动趋势：${value.ratio}%`)
+                }
+                await redis.set(`RESONANCE:GATCHA_LASTTIME:${value.type}${value.name}`, date.format('YYYY-MM-DD HH:mm:ss'))
+              }
+            }
+          }
         }
         sendMsg(messages)
       } catch (parseError) {
@@ -88,7 +112,6 @@ async function prompt () {
     setTimeout(prompt, 3000)
   })
 }
-prompt()
 
 async function sendMsg (messages) {
   const msglist = []

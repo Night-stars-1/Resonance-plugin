@@ -5,3 +5,4 @@ data/
 
 # 测试
 /test*.js
+config.json
