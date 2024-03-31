@@ -98,7 +98,7 @@ const userData = {
       profit: 30
     }
   },
-  maxGoodsNum: 525
+  maxGoodsNum: 725
 }
 userData.cityData = getCityDataByCityLevel(userData.cityLevel)
 const maxBook = 10
@@ -142,7 +142,7 @@ async function prompt () {
           })
         }
         const route = getGoBackOptimalRouteByTiredProfit(userData, buyList, sellList)
-        const lastTime = await redis.get(`RESONANCE:GOODS_LASTTIME:${route[0].buyCityName}<->${route[0].sellCityName}`)
+        const lastTime = await redis.get(`RESONANCE:GOODS_LASTTIME:${route[0].buyCityName}:${route[0].book}<->${route[0].sellCityName}:${route[1].book}`)
         const date = moment()
         if (route[0].tiredProfit + route[1].tiredProfit > 8000 && (date.diff(moment(lastTime), 'minutes') > 30 || !lastTime)) {
           const toGoodsNum = Object.keys(route[0].goodsData).map(name => name + route[0].goodsData[name].num).join(',')
@@ -152,6 +152,7 @@ ${route[0].buyCityName}:
     商品数量: ${toGoodsNum}
     商品总量: ${route[0].num}
     商品利润: ${route[0].profit}
+    所需疲劳: ${route[0].cityTired}
     疲劳利润: ${route[0].tiredProfit}
     单书利润: ${route[1].bookProfit}
     书本数量: ${route[0].book}
@@ -159,16 +160,18 @@ ${route[0].sellCityName}:
     商品数量: ${backGoodsNum}
     商品总量: ${route[1].num}
     商品利润: ${route[1].profit}
+    所需疲劳: ${route[1].cityTired}
     疲劳利润: ${route[1].tiredProfit}
     单书利润: ${route[1].bookProfit}
     书本数量: ${route[1].book}
 总计:
     利润: ${route[0].profit + route[1].profit}
+    所需疲劳: ${route[0].cityTired + route[1].cityTired}
     疲劳利润: ${route[0].tiredProfit + route[1].tiredProfit}
     单书利润: ${route[0].bookProfit + route[1].bookProfit}
     书本数量: ${route[0].book + route[1].book}`
           sendMsg(message)
-          await redis.set(`RESONANCE:GOODS_LASTTIME:${route[0].buyCityName}<->${route[0].sellCityName}`, date.format('YYYY-MM-DD HH:mm:ss'))
+          await redis.set(`RESONANCE:GOODS_LASTTIME:${route[0].buyCityName}:${route[0].book}<->${route[0].sellCityName}:${route[1].book}`, date.format('YYYY-MM-DD HH:mm:ss'))
         }
       } catch (parseError) {
         logger.error('JSON解析失败', parseError)
