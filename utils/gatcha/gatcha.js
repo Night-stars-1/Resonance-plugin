@@ -7,6 +7,7 @@ export async function getRecords (pid, remoteId) {
   }
   let records = []
   let name = ''
+  let uid = 0
   do {
     logger.info(`正在获取第${page}页`)
     const response = await fetch('https://goda.srap.link/getRecruitRecords', {
@@ -24,6 +25,7 @@ export async function getRecords (pid, remoteId) {
     })
     data = await response.json()
     name = data.data.user_name
+    uid = data.data.uid
     records.push(...data.data.card_records)
     // 延迟500ms，防止请求过快
     await new Promise(resolve => setTimeout(resolve, 500))
@@ -31,5 +33,5 @@ export async function getRecords (pid, remoteId) {
   } while (page <= Math.ceil(data.data.record_cnt / 25))
 
   logger.info('=== 记录拉取完成 ===')
-  return { records, name }
+  return { records, name, uid }
 }

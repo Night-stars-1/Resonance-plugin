@@ -10,7 +10,8 @@ import { poolData } from './poolData.js'
 import moment from 'moment'
 
 export default class GatchaData {
-  constructor (uid, pid, remoteId) {
+  constructor (userId, pid, remoteId, uid = 'none') {
+    this.userId = userId
     this.uid = uid
     this.pid = pid
     this.remoteId = remoteId
@@ -100,7 +101,9 @@ export default class GatchaData {
 
   async updateData () {
     if (this.pid && this.remoteId) {
-      const records_0 = this.merge(await this.readJSON(this.getFilePath(0)), await getRecords(this.pid, this.remoteId))
+      const data = await getRecords(this.pid, this.remoteId)
+      this.uid = data.uid
+      const records_0 = this.merge(await this.readJSON(this.getFilePath(0)), data)
       if (records_0.records.length === 0) {
         throw new Error('抽卡记录为空, 可能是pid或remote_id过期')
       }
@@ -136,22 +139,23 @@ export default class GatchaData {
       throw new Error('uid 不一致')
     }
     const lastItemId = oldData.records?.[0]?.role_id || ''
-    const newArr = {
-      records: [],
-      name: newData.name
-    }
+    const lastObtainTime = oldData.records?.[0]?.obtain_time || 0
+    const newArr = []
     for (let i = 0; i < newData.records.length; i++) {
       const curr = newData.records[i]
-      if (curr.role_id === lastItemId) {
+      if (curr.role_id === lastItemId && curr.obtain_time === lastObtainTime) {
         break
       }
-      newArr.records.push(curr)
+      newArr.push(curr)
     }
-    return newArr
+    return {
+      records: _.concat(newArr, oldData.records),
+      name: newData.name
+    }
   }
 
   getFilePath (poolId) {
-    return `${pluginRoot}/data/gatcha/${this.uid}/${poolId}.json`
+    return `${pluginRoot}/data/gatcha/${this.userId}/${this.uid}/${poolId}.json`
   }
 }
 

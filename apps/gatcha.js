@@ -1,11 +1,13 @@
 /**
  * By: https://github.com/hewang1an/StarRail-plugin
  */
+import fs from 'fs'
 import moment from 'moment'
 import common from '../../../lib/common/common.js'
 import { rulePrefix } from '../utils/data.js'
 import plugin from '../../../lib/plugins/plugin.js'
 import runtimeRender from '../common/runtimeRender.js'
+import { pluginRoot } from '../utils/path.js'
 import GatchaData from '../utils/gatcha/index.js'
 
 export class Gatcha extends plugin {
@@ -22,7 +24,7 @@ export class Gatcha extends plugin {
           fnc: 'bindAuthKey'
         },
         {
-          reg: `^${rulePrefix}抽卡(记录|分析|统计)?$`,
+          reg: `^${rulePrefix}抽卡(记录|分析|统计)?(\\d+)?$`,
           fnc: 'gatcha'
         },
         {
@@ -82,11 +84,12 @@ export class Gatcha extends plugin {
       const { pid, remoteId } = await this.getAuthKey()
       const date = moment()
       const lastTime = await redis.get(`RESONANCE:GATCHA_LASTTIME:${userId}`)
-
+      /*
       if (lastTime && date.diff(moment(lastTime), 'h') < 1) {
         await e.reply(`[${userId}]近期已经更新过数据了，上次更新时间：${lastTime}，两次更新间隔请大于1小时`)
         return false
       }
+      */
 
       redis.set(`RESONANCE:GATCHA_LASTTIME:${userId}`, date.format('YYYY-MM-DD HH:mm:ss'))
 
@@ -116,29 +119,33 @@ export class Gatcha extends plugin {
       )
       return false
     }
-    return {pid, remoteId}
+    return { pid, remoteId }
   }
 
   async gatcha (e) {
-    let user = e.user_id
+    let userId = e.user_id
     const ats = e.message.filter(m => m.type === 'at')
     if (ats.length > 0 && !e.atBot) {
-      user = ats[0].qq
+      userId = ats[0].qq
     }
     try {
       let type = 0
-
-      const gatcha = new GatchaData(user, '', '')
+      const newREG = /抽卡(?:记录|分析|统计)?(\d+)/
+      const match = newREG.exec(this.e.msg)
+      const uid = match[1]
+      const gatcha = new GatchaData(userId, '', '', uid)
       const stat = await gatcha.stat(type)
       await runtimeRender(e, '/gatcha/new.html', {
         ...stat,
-        user,
+        user: userId,
         type,
         filterRank: type === 0 ? 5 : 4
       })
     } catch (err) {
       logger.error(err)
-      await e.reply('本地暂无抽卡记录，请发送#雷索纳斯更新抽卡，更新抽卡记录')
+      const entries = fs.readdirSync(`${pluginRoot}/data/gatcha/${userId}`, { withFileTypes: true })
+      const uidList = entries.filter(dirent => dirent.isDirectory()).map(dirent => dirent.name)
+      await e.reply(`本地暂无抽卡记录，请发送#雷索纳斯更新抽卡，更新抽卡记录\n用户UID：${uidList.join('、')}`)
     }
   }
 }
