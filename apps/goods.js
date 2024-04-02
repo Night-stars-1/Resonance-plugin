@@ -415,16 +415,17 @@ function getGoBackOptimalRouteByTiredProfit (userData, buyList, sellList) {
       [routes[0], getBookRoutesbyCityName(bookRoutes, routes[0].sellCityName, routes[0].buyCityName, routes[0].book)])
     bookProfits.push(route)
   }
-  // 计算基准利润，用于去除异常数据
+  // 计算基准单书利润，用于去除异常数据
   let benchmarkProfit = 0
   bookProfits.forEach(item => {
-    benchmarkProfit += item[0].bookProfit + item[1].bookProfit
+    benchmarkProfit += (item[0].bookProfit + item[1].bookProfit)
   })
   benchmarkProfit = benchmarkProfit / bookProfits.length
+  // console.log(bookProfits, bookProfits.filter(obj => obj[0].bookProfit + obj[1].bookProfit > benchmarkProfit)[0][0].buyPrice, bookProfits.filter(obj => obj[0].bookProfit + obj[1].bookProfit > benchmarkProfit)[0][0].test)
   // 根据单位疲劳获取最优路线
   const route = bookProfits.reduce((maxObj, obj) =>
     obj[0].tiredProfit + obj[1].tiredProfit > maxObj[0].tiredProfit + maxObj[1].tiredProfit &&
-          obj[0].tiredProfit + obj[1].tiredProfit > benchmarkProfit
+          obj[0].bookProfit + obj[1].bookProfit > benchmarkProfit
       ? obj
       : maxObj, bookProfits[0])
   return route
@@ -477,14 +478,18 @@ async function prompt () {
 ${route[0].buyCityName}:
     商品数量: ${toGoodsNum}
     商品总量: ${route[0].num}
+    购买价格: ${route[0].buyPrice}
+    出售价格: ${route[0].sellPrice}
     商品利润: ${route[0].profit}
     所需疲劳: ${route[0].cityTired}
     疲劳利润: ${route[0].tiredProfit}
-    单书利润: ${route[1].bookProfit}
+    单书利润: ${route[0].bookProfit}
     书本数量: ${route[0].book}
 ${route[0].sellCityName}:
     商品数量: ${backGoodsNum}
     商品总量: ${route[1].num}
+    购买价格: ${route[1].buyPrice}
+    出售价格: ${route[1].sellPrice}
     商品利润: ${route[1].profit}
     所需疲劳: ${route[1].cityTired}
     疲劳利润: ${route[1].tiredProfit}
