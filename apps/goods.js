@@ -145,9 +145,9 @@ const skillData = {
 
 const userData = {
   cityLevel: {
-    '7号自由港': 12,
+    '7号自由港': 13,
     修格里城: 11,
-    曼德矿场: 11,
+    曼德矿场: 12,
     澄明数据中心: 14,
     荒原站: 11
   },
@@ -248,14 +248,15 @@ function getBookRoutesbyCityName (bookRoutes, buyCityName, sellCityName, book, t
 * @param {number} buy_num 额外购买数量
 * @returns
 */
-function setBuyGoods (cityName, target, userData, buyList) {
+function setBuyGoods (cityName, target, userData, buyList, type = 'go') {
   for (const goodName in buyList[cityName]) {
     if (target.num < userData.maxGoodsNum) {
       const buyNum = userData.cityData[cityName].buyNum
       const skillNum = userData.goodsAddition[goodName] ?? 0
       const oldNum = Math.round(buyList[cityName][goodName].num * (1 + buyNum + skillNum))
       const num = userData.maxGoodsNum - (target.num + oldNum) > 0 ? oldNum : userData.maxGoodsNum - target.num
-      const price = buyList[cityName][goodName].price
+      const oldPrice = buyList[cityName][goodName].price
+      const price = Math.round(oldPrice * (1 - userData[type].cutPrice.percentage))
       if (!Object.prototype.hasOwnProperty.call(target.goodsData, goodName)) {
         target.goodsData[goodName] = {
           num,
@@ -293,7 +294,7 @@ function getCityDataByCityLevel (cityLevel) {
 * @param {number} maxBook 最大购买次数
 * @returns 最优路线
 */
-function getOptimalRoute (userData, maxBook, buyList, sellList) {
+function getOptimalRoute (userData, maxBook, buyList, sellList, type = 'go') {
   const routes = []
   for (const buyCityName in buyList) {
     let target = {
@@ -304,24 +305,31 @@ function getOptimalRoute (userData, maxBook, buyList, sellList) {
       maxBook
     }
     // 0本书，基础量
-    target = setBuyGoods(buyCityName, target, userData, buyList)
+    target = setBuyGoods(buyCityName, target, userData, buyList, type)
     while (target.num < 400 && target.book < target.maxBook) {
       target.book += 1
-      target = setBuyGoods(buyCityName, target, userData, buyList)
+      target = setBuyGoods(buyCityName, target, userData, buyList, type)
     }
     for (const sellCityName in sellList) {
       let sellPrice = 0
+      let profit = 0
       for (const goodsName in target.goodsData) {
         const num = target.goodsData[goodsName].num
         const buyPrice = target.goodsData[goodsName].price
-        const noRevenueSellPrice = sellList[sellCityName][goodsName].price
+        const oldNoRevenueSellPrice = sellList[sellCityName][goodsName].price
+        const noRevenueSellPrice = Math.round(oldNoRevenueSellPrice * (1 + userData[type].raisePrice.percentage))
         const taxRate = userData.cityData[sellCityName].revenue
+        const noTaxRatePrice = (noRevenueSellPrice - buyPrice) * num
         const revenue = (noRevenueSellPrice - buyPrice) * taxRate
+        profit += noTaxRatePrice
         sellPrice += Math.round((noRevenueSellPrice - revenue) * num)
       }
       const taxRate = userData.cityData[buyCityName].revenue
       const buyPrice = Math.round(target.price * (1 + taxRate))
-      const cityTired = (cityTiredData[`${buyCityName}-${sellCityName}`] ?? 99999)
+      const cityTired = (cityTiredData[`${buyCityName}-${sellCityName}`] ?? 99999) + userData[type].raisePrice.profit + userData[type].cutPrice.profit
+      // const profit = sellPrice - buyPrice
+      const tiredProfit = Math.round(profit / cityTired)
+      const bookProfit = target.book === 0 ? 0 : Math.round(profit / target.book)
       routes.push({
         buyCityName,
         sellCityName,
@@ -329,6 +337,9 @@ function getOptimalRoute (userData, maxBook, buyList, sellList) {
         buyPrice,
         sellPrice,
         cityTired,
+        profit,
+        tiredProfit,
+        bookProfit,
         book: target.book,
         num: target.num,
         goodsData: target.goodsData
@@ -392,20 +403,19 @@ function getGoBackOptimalRouteByTiredProfit (userData, buyList, sellList) {
    * @type {bookRoutes[]}
    */
   const bookRoutes = []
-  /**
-   * @type {bookRoutes[]}
-   */
-  const goRoutes = []
   for (let book = 0; book + 1 < maxBook; book++) {
-    const routes = getOptimalRoute(userData, book, buyList, sellList)
-    bookRoutes.push(...getRoutesProfit(userData, routes, 'back'))
-    goRoutes.push(...getRoutesProfit(userData, routes, 'go'))
+    // const backRroutes = getOptimalRoute(userData, book, buyList, sellList, 'back')
+    // const goRoutes = getOptimalRoute(userData, book, buyList, sellList, 'go')
+    bookRoutes.push(...getOptimalRoute(userData, book, buyList, sellList, 'back'))
+    // goRoutes.push(...getOptimalRoute(userData, book, buyList, sellList, 'go'))
+    // bookRoutes.push(...getRoutesProfit(userData, routes, 'back'))
+    // goRoutes.push(...getRoutesProfit(userData, routes, 'go'))
   }
 
   // 遍历书本获取单书最优路线
   for (let book = 0; book + 1 < maxBook; book++) {
-    // const routes = getOptimalRoute(userData, book, buyList, sellList)
-    const routes = goRoutes.filter(route => route.book === book)
+    const routes = getOptimalRoute(userData, book, buyList, sellList, 'go')
+    // const routes = goRoutes.filter(route => route.book === book)
     if (routes.length === 0) continue
     const route = routes.reduce(
       (maxObj, obj) => obj.bookProfit + getBookRoutesbyCityName(bookRoutes, obj.sellCityName, obj.buyCityName, obj.book).bookProfit >=
